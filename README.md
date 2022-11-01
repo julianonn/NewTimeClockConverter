@@ -1,6 +1,8 @@
-# NewTimeClockConverter
+# NewTimeClockConverter (v0.1)
 
 Converts payroll documents from the format required by the Students of Georgetown, Inc's internal employee management site to the format required by Paylocity.
+
+## In development!!
 
 ## Installation and Build
 
