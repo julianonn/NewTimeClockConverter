@@ -18,9 +18,13 @@ Windows ```C:> py -m ensurepip --upgrade```
 
 ```pip install pyinstaller```
 
-5. 
+5. cd into the local repository and install dependencies
 
+```python3 setup.py install```
 
+6. Run PyInstaller to create executable
+
+```pyinstaller run.py --onefile -n NewTimeClockConverter ```
 
 
 
