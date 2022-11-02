@@ -31,5 +31,7 @@ Windows ```C:> py -m ensurepip --upgrade```
 
 
 ## License
-While created to assist with my job at the Students of Georgetown, Inc, this was a personal project completed off the clock. 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+Disclaimer: While created to assist with my job at the Students of Georgetown, Inc, this was a personal project completed off the clock. 
+
