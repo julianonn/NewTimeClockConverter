@@ -2,9 +2,11 @@ import os
 import tkinter as tk
 from tkinter import messagebox as msg
 from tkinter import filedialog as fd
-
+from .reader import Reader
+from .writer import Writer
+from .watchdog import Watchdog
 from .sys_open import display_dir
-from .directory_handler import DirectoryHandler
+
 
 
 class Dialog(tk.Tk):
@@ -14,6 +16,7 @@ class Dialog(tk.Tk):
     Calls DirectoryHandler with chosen path.
     Displays messagebox with errors.
     """
+
     def __init__(self):
         """
         Initializes dialog
@@ -22,7 +25,7 @@ class Dialog(tk.Tk):
         super().__init__()
 
         self.path = None
-        self.dh = None
+        self.dir_handler = None
 
         self.title('New TimeClockConverter :)')
         self.geometry('600x400')
@@ -40,15 +43,15 @@ class Dialog(tk.Tk):
         self.hi_ops = tk.Label(text="hi ops <3", fg='magenta', font=12)
         self.hi_ops.pack(padx=2, pady=10)
 
-        self.label1 = tk.Label(text=reqs, justify='left')
-        self.label1.pack(padx=2, pady=2)
+        self.lbl_reqs = tk.Label(text=reqs, justify='left')
+        self.lbl_reqs.pack(padx=2, pady=2)
 
-        self.button1 = tk.Button(text='Choose Folder', command=self.select_directory)
-        self.button1.pack(padx=2, pady=5)
-        self.button2 = tk.Button()
+        self.btn_choose = tk.Button(text='Choose Folder', command=self.select_directory)
+        self.btn_choose.pack(padx=2, pady=5)
+        self.btn_convert = tk.Button()
 
-        self.label2 = tk.Label(text='Selected: ', justify='left', fg='red')
-        self.label2.pack(padx=2, pady=2)
+        self.lbl_selected = tk.Label(text='Selected: ', justify='left', fg='red')
+        self.lbl_selected.pack(padx=2, pady=2)
 
     def select_directory(self):
         """
@@ -61,19 +64,22 @@ class Dialog(tk.Tk):
             initialdir=os.getcwd()
         )
         if self.path is not None:
+            self.confirm_selected()
             self.add_convert_button()
+
+    def confirm_selected(self):
+        self.lbl_selected['text'] += self.path
+        self.lbl_selected['fg'] = 'green'
 
     def add_convert_button(self):
         """
         Makes convert button visible
         """
         if self.path is not None:
-            self.label2['text'] += self.path
-            self.label2['fg'] = 'green'
-            self.button2 = tk.Button(text='Convert', command=self.convert)
-            self.button2.pack(padx=2, pady=5)
+            self.btn_convert = tk.Button(text='Scan & Convert', command=self.run)
+            self.btn_convert.pack(padx=2, pady=5)
 
-    def convert(self):
+    def run(self):
         """
         Creates DirectoryHandler object with path, initiating file conversion.
         Displays chosen directory after conversion.
@@ -81,13 +87,21 @@ class Dialog(tk.Tk):
         """
         try:
             if self.path is not None:
-                self.dh = DirectoryHandler(self.path)
-                display_dir(self.path)
-                self.path = None
+                #self.dir_handler = DirectoryHandler(self.path)
+                #display_dir(self.path)
+                #self.path = None
+
+                r = Reader(self.path)
+                r.read()
+                data = r.data  # store dictionary of dataframes
+                w = Writer(self.path)
+                w.convert(data)
+
+                tock = Watchdog()  # all my phantom tollbooth fans :,]
+                tock.sniff(data)
+
+
+
+
         except Exception as e:
-            msg.showerror("ERROR:" + e)
-
-
-
-
-
+            msg.showerror("ERROR:" + str(e))
