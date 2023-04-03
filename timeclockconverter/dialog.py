@@ -6,7 +6,7 @@ from .reader import Reader
 from .writer import Writer
 from .watchdog import Watchdog
 from .sys_open import display_dir
-
+import traceback
 
 
 class Dialog(tk.Tk):
@@ -53,6 +53,9 @@ class Dialog(tk.Tk):
         self.lbl_selected = tk.Label(text='Selected: ', justify='left', fg='red')
         self.lbl_selected.pack(padx=2, pady=2)
 
+        self.lbl_watchdog = tk.Label(text="", justify='left')
+        self.lbl_watchdog.pack(padx=2, pady=2)
+
     def select_directory(self):
         """
         Prompts user to choose directory with Tkinter GUI.
@@ -87,9 +90,6 @@ class Dialog(tk.Tk):
         """
         try:
             if self.path is not None:
-                #self.dir_handler = DirectoryHandler(self.path)
-                #display_dir(self.path)
-                #self.path = None
 
                 r = Reader(self.path)
                 r.read()
@@ -99,9 +99,18 @@ class Dialog(tk.Tk):
 
                 tock = Watchdog()  # all my phantom tollbooth fans :,]
                 tock.sniff(data)
+                self.update_warning_lbl(tock)
 
-
-
+                # display and reset...
+                display_dir(self.path)
+                self.path = None
 
         except Exception as e:
+            traceback.print_exc()
+            print(e)
             msg.showerror("ERROR:" + str(e))
+
+    def update_warning_lbl(self, tock):
+        s_w = "\n".join(tock.msg)
+        self.lbl_watchdog['text'] = "**WARNINGS**\n" + s_w
+

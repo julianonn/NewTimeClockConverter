@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import arrow
 from pathlib import Path
 
 
@@ -28,14 +29,15 @@ class Writer:
         # Moves each input csv files to 'unconverted' directory
         if os.path.exists(self.in_dir):
             for csv in self.path.glob('*.csv*'):  # grabs all files
-                csv.rename(self.path.joinpath(csv.name))  # moves to input folder.
+                csv.rename(self.in_dir.joinpath(csv.name))  # moves to input folder.
 
     def write_files(self):
         for key in self.data.keys():
             # call static method reformat
             df = reformat(self.data[key])
             # write out to CSV file in 'converted' directory
-            out_file = (self.out_dir / key).with_suffix('.csv')
+            fname = str(key) + '_' + arrow.now().format('YYYY-MM-DD') # ends up DEPT_YYYY-MM-DD
+            out_file = (self.out_dir / fname).with_suffix('.csv')
             df.to_csv(out_file, header=False, index=True)
 
 

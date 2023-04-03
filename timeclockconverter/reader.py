@@ -19,7 +19,7 @@ class Reader:
         self.data = {}
         self.path = Path(p)
 
-        if (not p.exists()) or (not p.is_dir()):
+        if not self.path.is_dir():
             raise Exception("reader.py, input directory does not exist")
 
     # CALLED BY DIALOG.PY
