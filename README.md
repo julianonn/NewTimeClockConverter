@@ -12,9 +12,9 @@ Converts payroll documents from the format required by the Students of Georgetow
 
 3. If not already installed, install pip
 
-Linux & MacOS: ```$ python -m ensurepip --upgrade```
+Linux & MacOS: ```python -m ensurepip --upgrade```
 
-Windows ```C:> py -m ensurepip --upgrade```
+Windows ```py -m ensurepip --upgrade```
 
 4. Install PyInstaller
 
