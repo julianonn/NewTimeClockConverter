@@ -25,7 +25,7 @@ Windows ```py -m ensurepip --upgrade```
 ```python3 setup.py install```
 
 
-### _GET EXECUTABLE:_
+### Executable instructions
 After doing all the above, use PyInstaller to create a single executable. 
 
 ```pyinstaller run.py --onefile -n NewTimeClockConverter ```
