@@ -35,5 +35,5 @@ After doing all the above, use PyInstaller to create a single executable.
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-Disclaimer: While created to assist the POps Ops role Students of Georgetown, Inc, this was a personal project completed off the clock, published with approval from the corporation.
+Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc, this was a personal project completed off the clock, published with full permission from the company.
 
