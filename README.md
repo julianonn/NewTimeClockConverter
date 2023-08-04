@@ -11,7 +11,7 @@ These are just the scripts. Tkinter and Flask app versions are sitting on my com
 
 Cool.
 
-Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc (the Corp), this project was completed off the clock, published with full permission from the company. I'm not going around sprinkling proprietary code all over the internet lol.
+Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc (the Corp), this project was completed off the clock, published with full permission from the non-profit. I'm not going around sprinkling proprietary code all over the internet lol.
 
 ## Installation and Build
 
