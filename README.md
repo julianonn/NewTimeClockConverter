@@ -4,6 +4,15 @@ Converts payroll documents from the format required by the Students of Georgetow
 
 ### _In development!!_
 
+These are just the scripts. Tkinter and Flask app versions are sitting on my computer somewhere... someday I'll commit them... maybe...
+
+## License? Do I need one?
+[MIT](https://choosealicense.com/licenses/mit/)
+
+Cool.
+
+Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc (the Corp), this project was completed off the clock, published with full permission from the company. I'm not going around publishing proprietary code as my own lol.
+
 ## Installation and Build
 
 1. Clone repository locally
@@ -29,11 +38,4 @@ Windows ```py -m ensurepip --upgrade```
 After doing all the above, use PyInstaller to create a single executable. 
 
 ```pyinstaller run.py --onefile -n NewTimeClockConverter ```
-
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
-
-Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc, this was a personal project completed off the clock, published with full permission from the company.
 
