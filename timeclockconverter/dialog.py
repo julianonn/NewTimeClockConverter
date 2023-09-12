@@ -27,6 +27,8 @@ class Dialog(tk.Tk):
         self.path = None
         self.dir_handler = None
 
+        self.errors = []
+
         self.title('New TimeClockConverter :)')
         self.geometry('600x400')
 
@@ -55,6 +57,10 @@ class Dialog(tk.Tk):
 
         self.lbl_watchdog = tk.Label(text="", justify='left')
         self.lbl_watchdog.pack(padx=2, pady=2)
+
+        self.lbl_error = tk.Label(text="", justify='left')
+        self.lbl_error.pack(padx=2, pady=2)
+
 
     def select_directory(self):
         """
@@ -108,9 +114,15 @@ class Dialog(tk.Tk):
         except Exception as e:
             traceback.print_exc()
             print(e)
-            msg.showerror("ERROR:" + str(e))
+            #msg.showerror("ERROR:" + str(e))
+            self.update_error_lbl(str(e))
 
     def update_warning_lbl(self, tock):
         s_w = "\n".join(tock.msg)
         self.lbl_watchdog['text'] = "**WARNINGS**\n" + s_w
+
+
+    def update_error_lbl(self, error):
+        self.errors.append("FATAL ERROR. Docs remain UNCONVERTED and likely INCORRECT: {}\n".format(error))
+        self.lbl_error['text'] = "\n".join(self.errors)
 
