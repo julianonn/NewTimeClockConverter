@@ -6,7 +6,7 @@ Converts payroll documents from the format required by the Students of Georgetow
 
 These are just the scripts. Tkinter and Flask app versions are sitting on my computer somewhere... someday I'll commit them... maybe...
 
-## License? Do I need one?
+## License?
 [MIT](https://choosealicense.com/licenses/mit/)
 
 Cool.
