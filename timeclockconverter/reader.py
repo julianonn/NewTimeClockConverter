@@ -117,9 +117,9 @@ class Reader:
                             new_val = int(row[col])
                             df.at[i, col] = new_val
                         except:
-                            raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected an integer number, got {row[col]}.")
+                            raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected an integer number, got '{row[col]}'.")
                     else:
-                        raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected an integer number, got {row[col]}.")
+                        raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected an integer number, got '{row[col]}'.")
 
                 # RATE and HOURS should both be floats
                 if col in ['rate', 'hours']: 
@@ -128,13 +128,13 @@ class Reader:
                         df.at[i, col] = new_val   # all is well!
                     elif isinstance(row[col], str):
                         try:
-                            new_val = int(row[col])
+                            new_val = float(row[col])
                             df.at[i, col] = new_val
                         except:
-                            raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected a number, got {row[col]}.")
+                            raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected a number, got '{row[col]}'.")
                     else:
-                        raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected a number, got {row[col]}.")
-
+                        raise CSVFormatError(f"File {csv.name} has invalid data in row {i + 4} column {old_columns[j]}. \nExpected a number, got '{row[col]}'.")
+                    
                 # NAME and DEPARTMENT NAME can be empty 
         return df
 
