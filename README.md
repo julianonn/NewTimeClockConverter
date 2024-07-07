@@ -16,7 +16,7 @@ Disclaimer: While created to assist the POps Ops role at Students of Georgetown,
 
 ## Installation for non-programmers
 
-...
+Look to your right and find the 'Releases' widget (between 'About' and 'Packages'). Select MacOS-v1.1, then click and download your first option: NewTimeClockConverter_v1.1. The version (v1.1) might be different. Just choose the latest. You don't need either of the 'Source Code' zip files unless you particularly desire them. 
 
 
 
