@@ -6,36 +6,39 @@ Converts payroll documents from the format required by the Students of Georgetow
 
 These are just the scripts. Tkinter and Flask app versions are sitting on my computer somewhere... someday I'll commit them... maybe...
 
-## License?
+## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-Cool.
+Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc (the Corp), this project was published with full permission from the organization. I'm not going around sprinkling proprietary code all over the internet lol.
 
-Disclaimer: While created to assist the POps Ops role at Students of Georgetown, Inc (the Corp), this project was completed off the clock, published with full permission from the non-profit. I'm not going around sprinkling proprietary code all over the internet lol.
 
-## Installation and Build
+
+
+## Installation for non-programmers
+
+...
+
+
+
+## Installation & build FOR DEVELOPERS
 
 1. Clone repository locally
-
 2. [Install Python 3](https://www.python.org/downloads/)
 
-3. If not already installed, install pip
+MAC USERS: 
 
-Linux & MacOS: ```python3 -m ensurepip --upgrade```
+3. If not already installed, install pip: `python3 -m ensurepip --upgrade`
 
-Windows ```py -m ensurepip --upgrade```
+4. Create a virtual environment: `python3 -m venv .venv`
 
-4. Install PyInstaller
+5. Install dependencies: `pip install -r requirements.txt`
 
-```pip install pyinstaller```
+6. Run the main program: `python3 run.py` and wait for the GUI to pop up.
 
-5. cd into the local repository and install dependencies
+7. To build into an executable, run `pyinstaller --onefile --windowed -n NewTimeClockConverter run.py`, and look in the `dist` folder for `NewTimeClockConverter.app`
 
-```python3 setup.py install```
+WINDOWS USERS: 
 
+Replace `python3` with `py` or `python` (whichever works on your system). Look for or `NewTimeClockConverter.exe` instead of `...app`.
 
-### Executable instructions
-After doing all the above, use PyInstaller to create a single executable. 
-
-```pyinstaller run.py --onefile -n NewTimeClockConverter ```
 

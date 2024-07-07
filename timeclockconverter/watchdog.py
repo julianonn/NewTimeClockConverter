@@ -29,7 +29,7 @@ class Watchdog:
         for index, row in df.iterrows():
             sn = "  {name} clocked {hours} hours across [{dept_list}]".format(
                 name=row['name'], hours=row['hours'],
-                dept_list=", ".join(row['dept-name']))
+                dept_list=", ".join([str(x) for x in row['dept-name']]))
             l.append(sn)
         return "\n".join(l)
 
