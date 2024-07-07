@@ -27,14 +27,19 @@ def test_run(path: Path):
         print(e)
 
 
-print("--------------- OK FORMAT --------------------")
-test_run(Path('tests/OK-format'))
 
-print("\n\n--------------- DEPARTMENT READ FAIL --------------------")
-test_run(Path('tests/bad-read-dept'))
+if __name__ == '__main__':
+    print("\n\n--------------- NO FILE --------------------")
+    test_run(Path('tests/no-file'))
 
-print("\n\n--------------- EMPID READ FAIL --------------------")
-test_run(Path('tests/bad-read-empID'))
+    print("\n\n--------------- OK FORMAT --------------------")
+    test_run(Path('tests/OK-format'))
 
-print("\n\n--------------- HOURS READ FAIL --------------------")
-test_run(Path('tests/bad-read-hours'))
+    print("\n\n--------------- DEPARTMENT READ FAIL --------------------")
+    test_run(Path('tests/bad-read-dept'))
+
+    print("\n\n--------------- EMPID READ FAIL --------------------")
+    test_run(Path('tests/bad-read-empID'))
+
+    print("\n\n--------------- HOURS READ FAIL --------------------")
+    test_run(Path('tests/bad-read-hours'))

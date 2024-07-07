@@ -141,14 +141,3 @@ class Reader:
         
 
     
-
-
-def test():
-    csv = Path("/Users/julianonn/CORP/python/payrollsos/unconverted/01-UC-5.5.csv")
-    reader = Reader(csv.parent)
-    reader.read()
-    #reader.read_single(csv)
-    print('done')
-
-
-test()
